@@ -2,6 +2,8 @@
 
 . config.sh
 
+echo "removing $bm_path"
+
 if [ -z "$bm_path" ]
 then
 	echo "Variable \$bm_path is not set!"

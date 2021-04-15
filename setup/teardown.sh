@@ -1,6 +1,6 @@
 # Usage: teardown.sh
 
-#. config.sh
+. config.sh
 
 echo 'Killing peer processes..'
 for peer in $peers ; do

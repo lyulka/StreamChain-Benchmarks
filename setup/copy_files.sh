@@ -38,5 +38,5 @@ fi
 
 for i in $peers ; do
 	ssh $user@$i "mkdir -p $GOPATH/src/github.com/chaincode/YCSB"
-	scp -q ../code/chaincode/$chaincode $user@$i:$GOPATH/src/github.com/chaincode/YCSB/
+	scp -q ../code/ycsb/chaincode/$chaincode $user@$i:$GOPATH/src/github.com/chaincode/YCSB/
 done

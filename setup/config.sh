@@ -1,18 +1,18 @@
 # Setup-related parameters
-export event="apollo-1-1"
-export add_events=""
-export peers="apollo-1-1 apollo-1-2 apollo-1-3 apollo-1-4 apollo-1-5"
-export orderers="apollo-1-6"
+export event="10.22.1.1"
+export add_events="10.22.1.2"
+export peers="10.22.1.1 10.22.1.2 10.22.1.3"
+export orderers="10.22.1.4"
 export user=$USER
-export goexec="$HOME/bin/go/bin"
+export goexec="/usr/local/go/bin"
 export bm_path="$HOME/benchmark"
 export event_dir="$user@$event:$bm_path"
 export run_event="ssh $user@$event cd $bm_path;"
 export txs=1
 export mode="streamchain_ff"
-export orderer_data="/mnt/ramdisk/$user"
-export peer_data="/tmp/$user"
-export statedb_data="/mnt/ramdisk/$user"
+export orderer_data="~/ramdisk/$user"
+export peer_data="~/tmp/$user"
+export statedb_data="~/ramdisk/$user"
 export raft="true"
 
 # Streamchain related variables
