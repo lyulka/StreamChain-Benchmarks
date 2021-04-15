@@ -9,7 +9,7 @@ pipeline=(16)
 ./copy_files.sh
 
 ./gen_scripts/gen_workload.sh "workloads/workload_load.template" "workload_load.in"
-./gen_scripts/gen_workload.sh "workloads/workload_10.template" "workload.in"
+./gen_scripts/gen_workload.sh "workloads/read_insert/workload_10_10000.template" "workload.in"
 size=$(grep -ch "^" workload.in)
 
 run() {
@@ -31,10 +31,10 @@ run() {
 			echo "Running benchmark: PEER_DATA=$peer_data ORDERER_DATA=$orderer_data PIPELINE=$STREAMCHAIN_PIPELINE"
 
 			for e in $add_events ; do
-				(ssh $user@$e "FABRIC_LOGGING_SPEC=CRITICAL ./peer chaincode invoke -c '{\"Args\":[\"invoke\"]}' -C mychannel -n YCSB --tls true --cafile=crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt --workload=workload.in --parallelism=$clients --repetitions=$(($size / $clients))") &
+				$run_event "FABRIC_LOGGING_SPEC=CRITICAL ./peer chaincode invoke -c '{\"Args\":[\"invoke\"]}' -C mychannel -n YCSB --tls true --cafile=crypto-config/ordererOrganizations/example.com/orderers/orderer0.example.com/tls/ca.crt --workload=workload.in --parallelism=$clients --repetitions=$(($size / $clients))" &
 			done
 
-			$run_event "FABRIC_LOGGING_SPEC=CRITICAL ./peer chaincode invoke -c '{\"Args\":[\"invoke\"]}' -C mychannel -n YCSB --tls true --cafile=crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt --workload=workload.in --parallelism=$clients --repetitions=$(($size / $clients))"
+			$run_event "FABRIC_LOGGING_SPEC=CRITICAL ./peer chaincode invoke -c '{\"Args\":[\"invoke\"]}' -C mychannel -n YCSB --tls true --cafile=crypto-config/ordererOrganizations/example.com/orderers/orderer0.example.com/tls/ca.crt --workload=workload.in --parallelism=$clients --repetitions=$(($size / $clients))"
 
 			sleep 60
 			flag=$?
@@ -46,12 +46,15 @@ run() {
 }
 
 #1 Peer commits to disk
-. run_pipeline/config_peer.sh && run 'a'
+echo "LINE 49: Peer commits to disk"
+# . run_pipeline/config_peer.sh && run 'a'
 
 #2 Orderer commits to disk
-. run_pipeline/config_orderer.sh && run 'b'
+echo "LINE 53: Orderer commits to disk"
+# . run_pipeline/config_orderer.sh && run 'b'
 
 #3 Streamchain
+echo "LINE 57: Streamchain"
 . run_pipeline/config_str.sh && run 'c'
 
 echo 'Benchmark successfully completed'

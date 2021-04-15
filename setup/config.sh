@@ -1,8 +1,8 @@
 # Setup-related parameters
 export event="10.22.1.1"
 export add_events="10.22.1.2"
-export peers="10.22.1.1 10.22.1.2 10.22.1.3"
-export orderers="10.22.1.4"
+export peers="10.22.1.1 10.22.1.2 10.22.1.3 10.22.1.4"
+export orderers="10.22.1.6"
 export user=$USER
 export goexec="/usr/local/go/bin"
 export bm_path="$HOME/benchmark"

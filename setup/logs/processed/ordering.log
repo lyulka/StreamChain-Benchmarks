@@ -8,3 +8,15 @@ streamchain_ff,10,0,3,16,a,true,,
 streamchain_ff,3,3,10000,16,1,true,-95175224.626998,284.864530
 streamchain_ff,3,2,10000,16,1,true,2.051736,186.449855
 streamchain_ff,3,2,10000,16,1,true,0.866156,179.408330
+streamchain_ff,3,2,10000,16,1,true,0.860609,179.887917
+streamchain_ff,10,0,2,16,a,true,,
+streamchain_ff,10,10000,2,16,a,true,-202259284.248553,434.992467
+run_pipeline: 3P, 2E, 1O, no ramdisk: streamchain_ff,10,10000,2,16,a,true,3.952756,3445.697245
+run_pipeline: 3P, 2E, 1O, both ramdisk: streamchain_ff,10,10000,2,16,c,true,3.539501,3697.934488
+run_pipeline: 3P, 2E, 1O, both ramdisk: streamchain_ff,10,10000,2,16,c,true,3.921595,3460.713427
+streamchain_ff,10,2,10000,16,10,true,4.090048,3346.301098
+streamchain_ff,10,2,10000,16,20,true,,
+streamchain_ff,10,2,10000,16,50,true,,
+streamchain_ff,10,2,10000,16,100,true,,
+streamchain_ff,10,2,10000,16,200,true,,
+streamchain_ff,10,10000,2,16,c,true,26.580682,761.338254

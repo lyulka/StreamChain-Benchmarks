@@ -1,3 +1,55 @@
+# StreamChain Evaluation of BIDL
+
+## General preparation
+
+	-- Run BEFORE you modify cluster configuration in config files
+	./reconfigure.sh
+
+	-- Inspect to modify cluster configuration
+	vi config.sh
+
+## General throughput benchmark with read_insert workload and no pipelining.
+
+	-- Copies cluster configuration, crypto material, and binaries (including streamchain binaries) to cluster machines
+	-- and runs the benchmark
+	./run_main.sh
+
+	-- Run if your benchmark run experienced errors or had to be terminated early
+	./teardown.sh
+
+	-- Results
+	cd logs/processed
+
+## General throughput benchmark with read_insert workload AND pipelining.	
+	-- Inspect to modify node configuration
+	-- run_pipeline/config_str.sh is what we're interested in. This configures streamchain to use ramdisk in both orderers and peers.
+	vi run_pipeline
+
+	-- IMPORTANT: run_pipeline.sh can run with configurable ramdisk utilization. Selectively comment out the last three code blocks
+	-- (the ones with run 'a', run 'b', and run 'c'). Make sure only one of the three is active.
+	-- Copies cluster configuration, crypto material, and binaries.
+	./run_pipeline.sh
+
+	-- If your run experienced errors or had to be terminated early
+	./teardown.sh
+
+	-- Results
+	cd logs/processed
+	
+## General throughput benchmark with read_insert workload, pipelining, AND batchwrite optimization
+
+	-- Inspect to modify node configuration
+	vi run_batchwrite/config_orderer.sh
+
+	-- Copies cluster configuration, crypto material, and binaries
+	./run_main.sh
+
+	-- Run if your benchmark experienced errors or had to be terminated early
+	./teardown.sh
+	
+	-- Results
+	cd logs/processed
+
 # Running Benchmarks
 
 ## General prerequisites

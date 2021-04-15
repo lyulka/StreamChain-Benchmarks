@@ -1,7 +1,15 @@
-3P, 1E, 1O: streamchain_ff,3,1,10000,16,1,1.789505,723.368277
-3P, 2E, 1O: streamchain_ff,3,2,10000,16,1,1.705971,746.270189
-3P, 3E, 1O: streamchain_ff,3,3,10000,16,1,1.764389,735.372846
-streamchain_ff,10,0,3,16,a,3169.155731,0.234890
-1P, 3E, 3O: streamchain_ff,3,3,10000,16,1,1.602094,821.956253
-1P, 2E, 3O: streamchain_ff,3,2,10000,16,1,1.581614,848.151237
-3P, 2E, 1O: streamchain_ff,3,2,10000,16,1,1.866392,720.720255
+run_main: 3P, 1E, 1O: streamchain_ff,3,1,10000,16,1,1.789505,723.368277
+run_main: 3P, 2E, 1O: streamchain_ff,3,2,10000,16,1,1.705971,746.270189
+run_main: 1P, 3E, 1O: streamchain_ff,3,3,10000,16,1,1.764389,735.372846
+run_main: 1P, 3E, 3O: streamchain_ff,3,3,10000,16,1,1.602094,821.956253
+run_main: 1P, 2E, 3O: streamchain_ff,3,2,10000,16,1,1.581614,848.151237
+run_main: 3P, 2E, 1O: streamchain_ff,3,2,10000,16,1,1.866392,720.720255
+run_pipeline: 3P, 2E, 1O, no ramdisk (run 'a'): streamchain_ff,10,10000,2,16,a,4980.671721,-0.295750
+run_pipeline: 3P, 2E, 1O, both ramdisk (run 'c'): streamchain_ff,10,10000,2,16,c,5106.482942,-1.461885
+streamchain_ff,10,10000,2,16,c,4969.654925,-0.294869
+streamchain_ff,10,2,10000,16,10,1.455784,3158.958807
+streamchain_ff,10,2,10000,16,20,,
+streamchain_ff,10,2,10000,16,50,,
+streamchain_ff,10,2,10000,16,100,,
+streamchain_ff,10,2,10000,16,200,,
+streamchain_ff,10,10000,2,16,c,5017.776761,-0.266260
